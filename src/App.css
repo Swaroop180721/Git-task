@@ -1,0 +1,30 @@
+/* .container{
+    background-color: rgb(37, 5, 144);
+} */
+#Error{
+    color: red;
+}
+.Login-Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 100vh;
+    background-image: url("./images/26-266973_image-page-transparent-background-oasis-skin-1-png.png");
+    background-size: cover;
+}
+.I-am-table-div{
+    width: 100vw;
+}
+
+
+.Hello .css-wop1k0-MuiDataGrid-footerContainer{
+    display: none !important;
+}
+/* .Hi .css-axafay-MuiDataGrid-virtualScroller{
+    display: none  ;
+
+} */
+.css-axafay-MuiDataGrid-virtualScroller{
+ overflow: hidden !important;
+}
