@@ -8,7 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 
-export default function UsersPopAdd({input,setInput,open,setOpen,handleAddBrands}) {
+export default function UsersPopAdd({input,setInput,open,setOpen,handleAddBrands,error}) {
 
     const style = {
         position: 'absolute',
@@ -63,9 +63,11 @@ export default function UsersPopAdd({input,setInput,open,setOpen,handleAddBrands
                         value={input.email}
                         size="small"
                         type='email'
-
+                        helperText={error}
                         onChange={(e) => setInput({ ...input, email: e.target.value })}
+                        
                     />
+                    <strong>{error}</strong>
                     <TextField
                         label="Mobile Number"
                         id="outlined-size-small"

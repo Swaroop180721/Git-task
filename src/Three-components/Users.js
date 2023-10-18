@@ -130,6 +130,7 @@ export default function Users() {
     const [users, setUsers] = useState([])
     const [editIndex, setEditIndex] = useState(null)
     const [open, setOpen] = React.useState(false);
+    const [error, setError] = useState()
 
     // useEffect(() =>{
     //     localStorage.setItem('users', JSON.stringify(users))
@@ -138,10 +139,11 @@ export default function Users() {
     // const [iiinput, setiiInput] = useState('')
 
 
+const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
 
     const handleAddBrands = () => {
-        if (input.FirstName !== '' && input.LastName !== '' && input.email !== '' && input.mobileNumber !== '') {
+        if (input.FirstName !== '' && input.LastName !== '' && input.email !== '' && input.mobileNumber !== '' && regex.test(input.email)) {
             if (editIndex === null) {
                 const newIndex = users.length + 1
                 setUsers((prevUsers) => [...prevUsers,
@@ -169,8 +171,15 @@ export default function Users() {
             }
                 
             setInput({ FirstName: '', LastName: '', email: '', mobileNumber: '' })
+            setOpen(false)
+
+        }else if(input.email !== '' || !regex.test(input.email)){
+            console.log("Sdfsdfsdf")
+            const matching = regex.test(input.email)
+            console.log(matching,"mtching")
+            setError("Email should be entered ")
         }
-        setOpen(false)
+        setError('')
     }
 
     const handleEditBrands = (id) => {
@@ -208,6 +217,7 @@ export default function Users() {
                         setInput={setInput}
                         open={open}
                         setOpen={setOpen}
+                        error={error}
                     />
 
                 </div>
