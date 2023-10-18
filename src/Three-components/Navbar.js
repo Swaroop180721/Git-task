@@ -18,7 +18,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Link, Outlet, useNavigate, Navigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate, Navigate, NavLink } from 'react-router-dom';
 
 import BoyIcon from '@mui/icons-material/Boy';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
@@ -111,27 +111,29 @@ export default function MiniDrawer() {
 
     const navigate = useNavigate()
 
-    const handleChangeBrands = () => {
-        // navigate('/Three-components/Brands')
-        <Navigate to='/Three-components/Brands'/>
-    };
+    // const handleChangeBrands = () => {
+    //     navigate('/Three-components/Brands')
+    //     <Navigate to='/Three-components/Brands'/>
+    // };
 
     const handleChangeProducts = () => {
         navigate('/Three-components/Products')
+        // <Navigate to='/Three-components/Products'/>
+
     };
 
     const handleChangeUsers = () => {
         navigate('/Three-components/Users')
     };
 
-    const handleChangeLogin = () => {
-        navigate('/')
-    }
+    // const handleChangeLogin = () => {
+    //     navigate('/')
+    // }
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', height: "100vh" }} className='Navbar'>
             <CssBaseline />
-            <AppBar position="fixed" open={open}>
+            <AppBar position="fixed" open={open} className='Navbar'>
                 <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <IconButton
                         color="inherit"
@@ -156,16 +158,18 @@ export default function MiniDrawer() {
 
                 </Toolbar>
             </AppBar>
-            <Drawer variant="permanent" open={open}>
-                <DrawerHeader>
+            <Drawer variant="permanent" open={open} >
+                <DrawerHeader className='Navbar'>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-                <List>
+                <List >
 
                     <ListItem disablePadding sx={{ display: 'block' }}>
+
+                    {/* <NavLink to="/">
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
@@ -181,13 +185,13 @@ export default function MiniDrawer() {
                                 }}
                                 onClick={handleChangeBrands}
                             >
-                                {/* <BoyIcon /> */}
+                                <BoyIcon />
                                 <WorkSharpIcon />
                             </ListItemIcon>
-                            <ListItemText sx={{ opacity: open ? 1 : 0 }} onClick={handleChangeBrands} >Brands</ListItemText>
+                            <ListItemText sx={{ opacity: open ? 1 : 0 }}  >Brands</ListItemText>
 
 
-                            {/* <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }}
+                            <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }}
                 onClick={
                     text === 'Brands'
                     ?handleChangeBrands 
@@ -197,8 +201,9 @@ export default function MiniDrawer() {
                     ?handleChangeUsers
                     :null   
                 }
-                /> */}
+                />
                         </ListItemButton>
+                    </NavLink> */}
 
                         <ListItemButton sx={{
                             minHeight: 48,
@@ -215,7 +220,9 @@ export default function MiniDrawer() {
                             >
                                 <SellSharpIcon />
                             </ListItemIcon>
-                            <ListItemText sx={{ opacity: open ? 1 : 0 }} onClick={handleChangeProducts} >Products</ListItemText>
+                            <ListItemText sx={{ opacity: open ? 1 : 0 }} 
+                            onClick={handleChangeProducts}
+                             >Products</ListItemText>
 
                         </ListItemButton>
 
@@ -240,9 +247,9 @@ export default function MiniDrawer() {
                     </ListItem>
 
                 </List>
-                {/* <Divider /> */}
+                <Divider />
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
                 {/* <DrawerHeader /> */}
                 <Outlet />
             </Box>     </Box>

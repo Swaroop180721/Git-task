@@ -64,7 +64,7 @@ export default function LoginPage() {
     }
     return (
         <div className='Login-Form'>
-            <Container component="main" sx={{ width: '40vw', height: '60vh' }}>
+            <Container component="main" sx={{ width: '38vw', height: '50vh' }}>
                 <Box
                     sx={{
                         marginTop: 8,
@@ -77,7 +77,7 @@ export default function LoginPage() {
                     }}
 
                 >
-                    <Box component="form" onSubmit={SubmitDetails} noValidate sx={{ width: '30vw', height: '50vh' }}>
+                    <Box component="form" onSubmit={SubmitDetails} noValidate sx={{ width: '28vw', height: '50vh' }}>
 
 
                         <Typography component="h1" variant="h4" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

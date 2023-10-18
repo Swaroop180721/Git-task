@@ -20,7 +20,7 @@ import UserEditButton from './UserEditButton';
 import UserDeleteButton from './UserDeleteButton';
 import AllUserEdit from './AllUserEdit';
 import { DataGrid } from '@mui/x-data-grid';
-import UsersPopAdd from './UsersPopAdd';
+import FormAdd from './FormAdd';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 
@@ -202,7 +202,7 @@ export default function Users() {
             <div>
                 <div style={{ display: 'flex',  justifyContent: 'center', gap: '10px', marginTop: "10%" }}>
 
-                    <UsersPopAdd
+                    <FormAdd
                         handleAddBrands={handleAddBrands}
                         input={input}
                         setInput={setInput}
