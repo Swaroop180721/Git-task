@@ -67,15 +67,32 @@ export default function Products() {
     
     ];
 
+    const StaticRows =[
+        { id: 1, products: 'Puma', },
+        { id: 2, products: 'Nike', },
+        { id: 3, products: "Jordan's", },
+        { id: 4, products: 'Gucci', },
+        { id: 5, products: 'USPolo',},
+    ];
+    const dynamicRows = [...StaticRows,...products];
+    console.log(dynamicRows,"dynamicRows")
+    
+
     const handleAddBrands = () => {
 
         console.log("Hitting")
         if (inputProducts !== '') {
             if (editProducts === null) {
-                setProducts([...products, { id: products.length + 1 , products: inputProducts }]);
+                console.log(inputProducts,"inputProducts")
+                setProducts([...products, { id: dynamicRows.length + 1 , products: inputProducts }]);
             } else {
                 const updatedProducts = [...products];
+                console.log(updatedProducts,"updatedProducts")
                 updatedProducts[editProducts] = { ...updatedProducts[editProducts], products: inputProducts };
+                
+                
+                console.log(updatedProducts,"updatedProductsupdatedProducts")
+
                 setProducts(updatedProducts);
                 setEditProducts(null);
             }
@@ -120,7 +137,7 @@ export default function Products() {
             }} >
 
                 <DataGrid className='Hello'
-                    rows={products }
+                    rows={dynamicRows}
                     columns={columns}
                 
                 />
@@ -128,7 +145,7 @@ export default function Products() {
                     editedIndex={editedIndex}   
                     popupopen = {popupopen}
                     setpopupopen={setpopupopen}
-                    products={products}
+                    products={dynamicRows}
                     // setEditProducts={setEditProducts}
                     // editProducts={editProducts}
                     setProducts={setProducts} 

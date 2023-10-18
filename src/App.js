@@ -17,14 +17,14 @@ function App() {
       <div className="App">
         <Routes>
           
-            <Route path="/" element={<LoginPage />} />
             <Route element={<ProtectedRoutes />}>
                 <Route path='/Three-components' element={<Navbar />}>
                   <Route path='/Three-components/Brands' element={<Brands />} />
                   <Route path='/Three-components/Products' element={<Products />} />
                   <Route path='/Three-components/Users' element={<Users />} />
-                </Route>
+            </Route>
           </Route>
+          <Route path="/loginPage" element={<LoginPage/>}/>
           <Route path="*" element={<RouteNotFound />} />
         </Routes>
       </div>
